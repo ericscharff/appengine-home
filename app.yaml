@@ -1,4 +1,4 @@
-runtime: pythona312
+runtime: python312
 
 handlers:
 - url: /static
