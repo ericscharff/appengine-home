@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Programmer's Calculator</title>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#2F3BA2" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body { background-color: #e9ecef; }
+      .container { width: 80%; margin 0 auto; }
+      .row { display: flex; flex-direction: row; flex-wrap: wrap; width: 100%; font-size: 16pt;}
+      .lhs { background-color: #f8f9fa; display: flex; flex-direction: column; flex-basis: 15%; }
+      .rhs { display: flex; flex-direction: column; flex-basis: 75%; }
+      #dec, #hex, #oct, #bin { width: 100%; font: 16pt monospace; }
+      #char { width: 100%; font-size: 16pt; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="lhs">Dec:</div>
+        <div class="rhs"><input id="dec" inputmode="numeric" /></div>
+      </div>
+      <div class="row">
+        <div class="lhs">Hex:</div>
+        <div class="rhs"><input id="hex" /></div>
+      </div>
+      <div class="row">
+        <div class="lhs">Oct:</div>
+        <div class="rhs"><input id="oct" inputmode="numeric" /></div>
+      </div>
+      <div class="row">
+        <div class="lhs">Bin:</div>
+        <div class="rhs"><input id="bin" inputmode="numeric" /></div>
+      </div>
+      <div class="row">
+        <div class="lhs">Char:</div>
+        <div class="rhs"><input id="char" /></div>
+      </div>
+    </div>
+    <script>
+      let val = 0;
+
+      function updateVal(newVal, validChar) {
+        if (newVal != val && newVal >= 0 && newVal <= 0xffffffff) {
+          val = newVal;
+        }
+        document.getElementById("dec").value = val.toString(10);
+        document.getElementById("hex").value = val.toString(16).toUpperCase();
+        document.getElementById("oct").value = val.toString(8);
+        document.getElementById("bin").value = val.toString(2);
+        document.getElementById("bin").value = val.toString(2);
+        const c =
+          validChar || (val >= 32 && val < 127) || (val & 0x2500) == 0x2500
+            ? String.fromCharCode(val)
+            : " ";
+
+        document.getElementById("char").value = c;
+      }
+
+      function doUpdate(valTxt, base) {
+        if (valTxt === "") valTxt = "0";
+        const newVal = Number.parseInt(valTxt, base);
+        updateVal(newVal, false);
+      }
+
+      for (const i of [
+        ["dec", 10],
+        ["hex", 16],
+        ["oct", 8],
+        ["bin", 2],
+      ]) {
+        const elId = i[0];
+        const base = i[1];
+        document
+          .getElementById(elId)
+          .addEventListener("input", (e) => doUpdate(e.target.value, base));
+      }
+      document
+        .getElementById("char")
+        .addEventListener("input", (e) =>
+          updateVal(e.target.value.charCodeAt(0), true),
+        );
+    </script>
+  </body>
+</html>
