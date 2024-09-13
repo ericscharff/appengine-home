@@ -18,7 +18,7 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="lhs">2Dec:</div>
+        <div class="lhs">DDec:</div>
         <div class="rhs"><input id="dec" inputmode="numeric" /></div>
       </div>
       <div class="row">
@@ -50,10 +50,7 @@
         document.getElementById("oct").value = val.toString(8);
         document.getElementById("bin").value = val.toString(2);
         document.getElementById("bin").value = val.toString(2);
-        const c =
-          validChar || (val >= 32 && val < 127) || (val & 0x2500) == 0x2500
-            ? String.fromCharCode(val)
-            : " ";
+        const c = val >= 32 && val < 0xffff ? String.fromCharCode(val) : " ";
 
         document.getElementById("char").value = c;
       }
