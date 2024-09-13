@@ -1,6 +1,6 @@
 {
-  "name": "Programmer calculator",
-  "short_name": "Calc",
+  "name": "AE Programmer calculator",
+  "short_name": "AECalc",
   "icons": [
     {
       "src": "/static/calc/icons/hexagon-192.png",
