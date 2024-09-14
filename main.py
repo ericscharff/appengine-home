@@ -1,4 +1,5 @@
 import datetime
+import random
 
 from flask import Flask, render_template
 
@@ -16,7 +17,8 @@ def calc_manifest():
 @app.route("/homeapp/")
 @app.route("/homeapp/index.html")
 def homeapp_main():
-    return render_template("homeapp/index.html")
+    roll = random.randint(1, 20)
+    return render_template("homeapp/index.html", diceroll=roll)
 
 @app.route("/homeapp/manifest.json")
 def homeapp_manifest():
