@@ -13,8 +13,6 @@ deployed to app engine
 
 # Useful commands
 
-Deploy:
-        gcloud app deploy
 Run dev server:
         flask --app main run
 Run tests:
@@ -22,3 +20,5 @@ Run tests:
 Run coverage:
         coverage run -m pytest
         coverage report
+Deploy:
+        gcloud app deploy
