@@ -89,6 +89,12 @@
           .addEventListener("input", (e) => doUpdate(e.target.value, base));
       }
       document
+        .getElementById("expr")
+        .addEventListener(
+          "keyup",
+          ({ key }) => key === "Enter" && doEvaluate(),
+        );
+      document
         .getElementById("eql")
         .addEventListener("click", () => doEvaluate());
       document
