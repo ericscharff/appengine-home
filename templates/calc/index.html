@@ -37,6 +37,10 @@
         <div class="lhs">Char:</div>
         <div class="rhs"><input id="char" /></div>
       </div>
+      <div class="row">
+        <div class="lhs">Exp:</div>
+        <div class="rhs"><input id="expr" /><button id="eql">=</button></div>
+      </div>
     </div>
     <script>
       let val = 0;
@@ -61,6 +65,17 @@
         updateVal(newVal, false);
       }
 
+      const VALID_EXPR = /^[-+*/<>()&|^%0-9a-fA-Fx ]+$/;
+      let getValue = () => 0;
+
+      function doEvaluate() {
+        const expr = document.getElementById("expr");
+        if (VALID_EXPR.test(expr.value)) {
+          eval(`getValue = () => ${expr.value}`);
+          updateVal(getValue(), true);
+        }
+      }
+
       for (const i of [
         ["dec", 10],
         ["hex", 16],
@@ -73,6 +88,9 @@
           .getElementById(elId)
           .addEventListener("input", (e) => doUpdate(e.target.value, base));
       }
+      document
+        .getElementById("eql")
+        .addEventListener("click", () => doEvaluate());
       document
         .getElementById("char")
         .addEventListener("input", (e) =>
