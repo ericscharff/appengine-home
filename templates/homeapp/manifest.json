@@ -1,6 +1,6 @@
 {
-  "short_name": "AEHome",
   "name": "AE Eric Home Page",
+  "short_name": "AEHome",
   "icons": [
     {
       "src": "/static/homeapp/icons/pwa-192x192.png",
