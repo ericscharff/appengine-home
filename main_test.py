@@ -24,7 +24,7 @@ def test_main(client):
 
 
 def test_calc_main(client):
-    response = client.get("/calc/")
+    response = client.get("/calc")
     assert b'Calculator' in response.data
 
 
@@ -40,7 +40,7 @@ def test_calc_manifest(client):
 
 
 def test_homeapp_main(client):
-    response = client.get("/homeapp/")
+    response = client.get("/homeapp")
     assert b'Home' in response.data
 
 
