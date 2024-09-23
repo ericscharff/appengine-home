@@ -6,6 +6,7 @@ app = Flask(__name__)
 
 
 @app.route("/calc")
+@app.route("/calc/")
 @app.route("/calc/index.html")
 def calc_main():
     return render_template("calc/index.html")
@@ -19,6 +20,7 @@ def calc_manifest():
 
 
 @app.route("/homeapp")
+@app.route("/homeapp/")
 @app.route("/homeapp/index.html")
 def homeapp_main():
     return render_template("homeapp/index.html")
