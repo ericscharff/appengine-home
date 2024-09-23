@@ -18,6 +18,8 @@
       "type": "image/png"
     }
   ],
+  
+
   "scope": "/calc/",
   "start_url": "/calc/index.html",
   "display": "standalone",

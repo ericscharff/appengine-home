@@ -19,6 +19,8 @@
       "purpose": "maskable"
     }
   ],
+
+
   "scope": "/homeapp/",
   "start_url": "/homeapp/index.html",
   "display": "standalone",
