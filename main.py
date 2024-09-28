@@ -4,6 +4,7 @@ from flask import Flask, make_response, render_template
 
 app = Flask(__name__)
 
+BUILD_DATE = 'Sat Sep 28 09:00:26 AM MDT 2024'
 
 @app.route("/calc")
 @app.route("/calc/")
@@ -35,4 +36,5 @@ def homeapp_manifest():
 
 @app.route("/")
 def root():
-    return render_template("index.html")
+    current_date = datetime.datetime.now().isoformat()
+    return render_template("index.html", build_date=BUILD_DATE, current_date=current_date)
