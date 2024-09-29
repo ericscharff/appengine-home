@@ -24,7 +24,8 @@ def calc_manifest():
 @app.route("/homeapp/")
 @app.route("/homeapp/index.html")
 def homeapp_main():
-    return render_template("homeapp/index.html")
+    current_date = datetime.datetime.now().isoformat()
+    return render_template("homeapp/index.html", current_date=current_date)
 
 
 @app.route("/homeapp/manifest.json")
