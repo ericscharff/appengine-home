@@ -6,6 +6,7 @@ app = Flask(__name__)
 
 BUILD_DATE = 'Tue Oct 15 07:31:54 PM MDT 2024'
 
+
 @app.route("/calc")
 @app.route("/calc/")
 @app.route("/calc/index.html")
@@ -24,7 +25,9 @@ def calc_manifest():
 @app.route("/homeapp/")
 @app.route("/homeapp/index.html")
 def homeapp_main():
-    current_date = datetime.datetime.now().isoformat()
+    current_date = (
+        datetime.datetime.utcnow() +
+        datetime.timedelta(hours=-6)).isoformat()
     return render_template("homeapp/index.html", current_date=current_date)
 
 
@@ -38,4 +41,7 @@ def homeapp_manifest():
 @app.route("/")
 def root():
     current_date = datetime.datetime.now().isoformat()
-    return render_template("index.html", build_date=BUILD_DATE, current_date=current_date)
+    return render_template(
+        "index.html",
+        build_date=BUILD_DATE,
+        current_date=current_date)
