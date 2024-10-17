@@ -40,7 +40,9 @@ def homeapp_manifest():
 
 @app.route("/")
 def root():
-    current_date = datetime.datetime.now().isoformat()
+    current_date = (
+        datetime.datetime.utcnow() +
+        datetime.timedelta(hours=-6)).isoformat()
     return render_template(
         "index.html",
         build_date=BUILD_DATE,
