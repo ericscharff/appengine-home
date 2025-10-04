@@ -1,10 +1,11 @@
 import datetime
+import secrets
 
-from flask import Flask, make_response, render_template
+from flask import Flask, make_response, render_template, request
 
 app = Flask(__name__)
 
-BUILD_DATE = 'Last modified Fri Oct  3 04:18:21 PM MDT 2025'
+BUILD_DATE = 'Last modified Sat Oct  4 10:36:46 AM MDT 2025'
 
 
 @app.route("/calc")
@@ -31,11 +32,22 @@ def homeapp_main():
     return render_template("homeapp/index.html", current_date=current_date)
 
 
+@app.route("/homeapp/runner")
+def homeapp_runner():
+    return render_template("homeapp/runner.html")
+
+
 @app.route("/homeapp/manifest.json")
 def homeapp_manifest():
     resp = make_response(render_template("homeapp/manifest.json"))
     resp.mimetype = 'application/json'
     return resp
+
+
+@app.route("/check_token")
+def check_update():
+    message = f'Your token was {request.args.get('token', 'nothing')}.'
+    return {'message': message, 'next_token': secrets.token_urlsafe(16)}
 
 
 @app.route("/")

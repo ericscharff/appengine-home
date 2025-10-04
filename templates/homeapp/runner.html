@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Runner</title>
+    <link rel="icon" href="/static/favicon.ico" sizes="any" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Last modified Sat Oct  4 10:36:46 AM MDT 2025 -->
+  </head>
+  <body>
+    <div id="logArea"></div>
+    <script>
+const logElement = document.getElementById('logArea');
+let responseCount = 0;
+function checkToken(tokenValue) {
+  const url = `/check_token?token=${tokenValue}`;
+  fetch(url).then(async (response) => {
+    responseCount++;
+    let nextToken = 'newToken';
+    if (response.ok) {
+      const j = await response.json();
+      const log = `Response: ${responseCount} Message: ${j['message']}`;
+      logElement.innerText = log;
+      nextToken = j['next_token'];
+    } else {
+      logElement.innerText = 'Fetch failure but retrying...';
+    }
+    const nextFetch = Math.floor(Math.random()*400 - 200 + 2000);
+    setTimeout(() => { checkToken(nextToken); }, nextFetch);
+  });
+}
+setTimeout(() => checkToken('start', 100));
+    </script>
+  </body>
+</html>
