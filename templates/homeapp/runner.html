@@ -5,8 +5,13 @@
     <link rel="icon" href="/static/favicon.ico" sizes="any" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
-      body { background: black; color: lightblue; }
-      div { font: bold medium monospace; }
+      body {
+        background: black;
+        color: lightblue;
+      }
+      div {
+        font: bold medium monospace;
+      }
     </style>
     <!-- Last modified Sat Nov 15 07:31:57 AM MST 2025 -->
   </head>
@@ -14,29 +19,31 @@
     <div id="logArea"></div>
     <div id="logArea2"></div>
     <script>
-const logElement = document.getElementById('logArea');
-const logElement2 = document.getElementById('logArea2');
-let responseCount = 0;
-function checkToken(tokenValue) {
-  const url = `/check_token?token=${tokenValue}`;
-  fetch(url).then(async (response) => {
-    responseCount++;
-    let nextToken = 'newToken';
-    if (response.ok) {
-      const j = await response.json();
-      const log = `Response: ${responseCount}`;
-      logElement.innerText = log;
-      const log2 = `Message: ${j['message']}`;
-      logElement2.innerText = log2;
-      nextToken = j['next_token'];
-    } else {
-      logElement.innerText = 'Fetch failure but retrying...';
-    }
-    const nextFetch = Math.floor(Math.random()*400 - 200 + 2000);
-    setTimeout(() => { checkToken(nextToken); }, nextFetch);
-  });
-}
-setTimeout(() => checkToken('start', 100));
+      const logElement = document.getElementById("logArea");
+      const logElement2 = document.getElementById("logArea2");
+      let responseCount = 0;
+      function checkToken(tokenValue) {
+        const url = `/check_token?token=${tokenValue}`;
+        fetch(url).then(async (response) => {
+          responseCount++;
+          let nextToken = "newToken";
+          if (response.ok) {
+            const j = await response.json();
+            const log = `Response: ${responseCount}`;
+            logElement.innerText = log;
+            const log2 = `Message: ${j["message"]}`;
+            logElement2.innerText = log2;
+            nextToken = j["next_token"];
+          } else {
+            logElement.innerText = "Fetch failure but retrying...";
+          }
+          const nextFetch = Math.floor(Math.random() * 400 - 200 + 2000);
+          setTimeout(() => {
+            checkToken(nextToken);
+          }, nextFetch);
+        });
+      }
+      setTimeout(() => checkToken("start", 100));
     </script>
   </body>
 </html>
