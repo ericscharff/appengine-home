@@ -5,7 +5,7 @@ from flask import Flask, make_response, render_template, request
 
 app = Flask(__name__)
 
-BUILD_DATE = 'Last modified Sat Nov 15 07:31:57 AM MST 2025'
+BUILD_DATE = "Last modified Sat Nov 15 07:31:57 AM MST 2025"
 
 
 @app.route("/calc")
@@ -18,7 +18,7 @@ def calc_main():
 @app.route("/calc/manifest.json")
 def calc_manifest():
     resp = make_response(render_template("calc/manifest.json"))
-    resp.mimetype = 'application/json'
+    resp.mimetype = "application/json"
     return resp
 
 
@@ -27,8 +27,8 @@ def calc_manifest():
 @app.route("/homeapp/index.html")
 def homeapp_main():
     current_date = (
-        datetime.datetime.utcnow() +
-        datetime.timedelta(hours=-6)).isoformat()
+        datetime.datetime.utcnow() + datetime.timedelta(hours=-6)
+    ).isoformat()
     return render_template("homeapp/index.html", current_date=current_date)
 
 
@@ -40,22 +40,21 @@ def homeapp_runner():
 @app.route("/homeapp/manifest.json")
 def homeapp_manifest():
     resp = make_response(render_template("homeapp/manifest.json"))
-    resp.mimetype = 'application/json'
+    resp.mimetype = "application/json"
     return resp
 
 
 @app.route("/check_token")
 def check_update():
-    message = f'Your token was {request.args.get('token', 'nothing')}.'
-    return {'message': message, 'next_token': secrets.token_urlsafe(16)}
+    message = f"Your token was {request.args.get('token', 'nothing')}."
+    return {"message": message, "next_token": secrets.token_urlsafe(16)}
 
 
 @app.route("/")
 def root():
     current_date = (
-        datetime.datetime.utcnow() +
-        datetime.timedelta(hours=-6)).isoformat()
+        datetime.datetime.utcnow() + datetime.timedelta(hours=-6)
+    ).isoformat()
     return render_template(
-        "index.html",
-        build_date=BUILD_DATE,
-        current_date=current_date)
+        "index.html", build_date=BUILD_DATE, current_date=current_date
+    )
