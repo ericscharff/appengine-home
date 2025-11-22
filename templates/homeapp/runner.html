@@ -18,9 +18,13 @@
   <body>
     <div id="logArea"></div>
     <div id="logArea2"></div>
+    <button id="lockButton">Start</button>
+    <div id="lockStatus"></div>
     <script>
       const logElement = document.getElementById("logArea");
       const logElement2 = document.getElementById("logArea2");
+      const lockStatus = document.getElementById("lockStatus");
+      const lockButton = document.getElementById("lockButton");
       let responseCount = 0;
       function checkToken(tokenValue) {
         const url = `/check_token?token=${tokenValue}`;
@@ -43,7 +47,21 @@
           }, nextFetch);
         });
       }
-      setTimeout(() => checkToken("start", 100));
+      async function startLockAndTimer() {
+        const wakeLock = await navigator.wakeLock.request('screen');
+        if (wakeLock) {
+          lockStatus.innerText = "Wake lock active";
+          wakeLock.addEventListener("release", () => {
+            lockStatus.innerText = "Wake lock released";
+          });
+        } else {
+          lockStatus.innerText = "Wake lock not available";
+        }
+      }
+      lockButton.addEventListener("click", () => {
+        startLockAndTimer();
+        setTimeout(() => checkToken("start", 100));
+      });
     </script>
   </body>
 </html>
