@@ -58,6 +58,7 @@
           if (wakeLock) {
             wakeLock.release().then(() => {
               lockStatus.innerText = "Stopped";
+              wakeLock = null;
             });
           }
           lockButton.textContent = "Start";
