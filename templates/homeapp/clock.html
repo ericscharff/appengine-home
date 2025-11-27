@@ -1,39 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <link rel="icon" href="/static/favicon.ico" sizes="any" />
     <title>Current Time</title>
     <style>
       @font-face {
-        font-family: 'Raleway';
+        font-family: "Raleway";
         font-style: normal;
         font-weight: 400;
         font-display: swap;
-        src: url(Raleway.ttf) format('truetype');
+        src: url(Raleway.ttf) format("truetype");
       }
       @font-face {
-        font-family: 'Style Script';
+        font-family: "Style Script";
         font-style: normal;
         font-weight: 400;
         font-display: swap;
-        src: url(Style.ttf) format('truetype');
+        src: url(Style.ttf) format("truetype");
       }
       @font-face {
         font-family: "LED Display7";
-        src: url(led.woff2) format('woff2');
+        src: url(led.woff2) format("woff2");
       }
       .mono {
         font-family: monospace;
       }
       .styleScript {
-        font-family: 'Style Script', sans-serif;
+        font-family: "Style Script", sans-serif;
       }
       .raleway {
-        font-family: 'Raleway', sans-serif;
+        font-family: "Raleway", sans-serif;
       }
       .led7 {
-        font-family: 'LED Display7', sans-serif;
+        font-family: "LED Display7", sans-serif;
       }
 
       body {
@@ -47,7 +47,7 @@
   </head>
   <body>
     <span class="mono" id="clockFace"></span>
-    <br>
+    <br />
     <span id="status">status</span>
     <script src="/static/homeapp/clock.js"></script>
   </body>
