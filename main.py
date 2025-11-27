@@ -32,6 +32,11 @@ def homeapp_main():
     return render_template("homeapp/index.html", current_date=current_date)
 
 
+@app.route("/homeapp/clock")
+def homeapp_runner():
+    return render_template("homeapp/clock.html")
+
+
 @app.route("/homeapp/runner")
 def homeapp_runner():
     return render_template("homeapp/runner.html")
