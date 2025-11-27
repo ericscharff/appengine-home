@@ -1,4 +1,6 @@
 const clockElement = document.getElementById("clockFace");
+const startClockElement = document.getElementById("startClock");
+startClockElement.addEventListener("click", startIt);
 
 function twoDigit(n) {
   if (n < 10) {
@@ -38,6 +40,7 @@ function runIt() {
 requestAnimationFrame(runIt);
 
 async function startIt() {
+  startClockElement.style.display = "none";
   const statusElem = document.getElementById("status");
   if ("wakeLock" in navigator) {
     isSupported = true;
@@ -58,4 +61,3 @@ async function startIt() {
     statusElem.textContent = "Wake lock is not supported by this browser.";
   }
 }
-startIt();
