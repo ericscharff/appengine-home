@@ -33,7 +33,7 @@ def homeapp_main():
 
 
 @app.route("/homeapp/clock")
-def homeapp_runner():
+def homeapp_clock():
     return render_template("homeapp/clock.html")
 
 
