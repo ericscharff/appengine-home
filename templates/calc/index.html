@@ -10,92 +10,43 @@
         background-color: #e9ecef;
         font-size: 16pt;
       }
-      .container {
+      .calculator {
         display: grid;
-        grid-template-columns: 10% auto;
+        grid-template-columns: max-content 1fr;
+        gap: 0.5rem 0.5rem;
+        align-items: center;
       }
-      #decLabel {
-        grid-row: 1;
-        grid-column: 1;
+      input {
+        width: 100%;
+        padding: 0.6rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+        box-sizing: border-box;
       }
-      #hexLabel {
-        grid-row: 2;
-        grid-column: 1;
-      }
-      #octLabel {
-        grid-row: 3;
-        grid-column: 1;
-      }
-      #binLabel {
-        grid-row: 4;
-        grid-column: 1;
-      }
-      #charLabel {
-        grid-row: 5;
-        grid-column: 1;
-      }
-      #exprLabel {
-        grid-row: 6;
-        grid-column: 1;
-      }
-      #dec,
-      #hex,
-      #oct,
-      #bin,
-      #expr {
-        width: 98%;
-        font: 16pt monospace;
-      }
-      #char {
-        width: 98%;
-        font-size: 16pt;
-      }
-      #dec {
-        grid-row: 1;
-        grid-column: 2;
-      }
-      #hex {
-        grid-row: 2;
-        grid-column: 2;
-      }
-      #oct {
-        grid-row: 3;
-        grid-column: 2;
-      }
-      #bin {
-        grid-row: 4;
-        grid-column: 2;
-      }
-      #char {
-        grid-row: 5;
-        grid-column: 2;
-      }
-      #expr {
-        grid-row: 6;
-        grid-column: 2;
-      }
-      #eql {
-        width: 99%;
-        grid-row: 7;
-        grid-column: 2;
+      button {
+        width: 100%;
+        font-size: 1.2rem;
       }
     </style>
-    <!-- Last modified Tue Jan  6 07:06:20 AM MST 2026 -->
+    <!-- Last modified Tue Jan  6 07:06:03 AM MST 2026 -->
   </head>
   <body>
-    <div class="container">
-      <span id="decLabel">Dec:</span>
+    <div class="calculator">
+      <label for="dec">Dec:</label>
       <input id="dec" inputmode="numeric" />
-      <span id="hexLabel">Hex:</span>
+      <label for="hex">Hex:</label>
       <input id="hex" />
-      <span id="octLabel">Oct:</span>
+      <label for="oct">Oct:</label>
       <input id="oct" inputmode="numeric" />
-      <span id="binLabel">Bin:</span>
+      <label for="bin">Bin:</label>
       <input id="bin" inputmode="numeric" />
-      <span id="charLabel">Char:</span>
+      <label for="char">Char:</label>
       <input id="char" />
-      <span id="exprLabel">Exp:</span>
-      <input id="expr" /><button id="eql">=</button>
+      <label for="expr">Exp:</label>
+      <input id="expr" />
+      <label for="eql">&nbsp;</label>
+      <button id="eql">=</button>
     </div>
     <script>
       let val = 0;
