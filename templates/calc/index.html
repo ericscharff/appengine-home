@@ -1,55 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Programmer's Calculator</title>
-    <meta name="theme-color" content="#2F3BA2" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <head>
+        <title>Programmer's Calculator</title>
+        <meta name="theme-color" content="#2F3BA2" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="Calculator" />
         <meta name="keywords" content="calculator" />
-    <style>
-      body {
-        background-color: #e9ecef;
-        font-size: 16pt;
-      }
-      .calculator {
-        display: grid;
-        grid-template-columns: max-content 1fr;
-        gap: 0.5rem 0.5rem;
-        align-items: center;
-      }
-      input {
-        width: 100%;
-        padding: 0.6rem;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-size: 1rem;
-        box-sizing: border-box;
-      }
-      button {
-        width: 100%;
-        font-size: 1.2rem;
-      }
-    </style>
-    <!-- Last modified Mon Jun 29 07:58:05 AM MDT 2026 -->
-  </head>
-  <body>
-    <div class="calculator">
-      <label for="dec">Dec:</label>
-      <input id="dec" inputmode="numeric" />
-      <label for="hex">Hex:</label>
-      <input id="hex" />
-      <label for="oct">Oct:</label>
-      <input id="oct" inputmode="numeric" />
-      <label for="bin">Bin:</label>
-      <input id="bin" inputmode="numeric" />
-      <label for="char">Char:</label>
-      <input id="char" />
-      <label for="expr">Exp:</label>
-      <input id="expr" />
-      <label for="eql">&nbsp;</label>
-      <button id="eql">=</button>
-    </div>
-    <script>
+        <style>
+body {
+  background-color: #e9ecef;
+  font-size: 16pt;
+}
+.calculator {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.5rem 0.5rem;
+  align-items: center;
+}
+input {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+button {
+  width: 100%;
+  font-size: 1.2rem;
+}
+        </style>
+        <!-- Last modified Mon Jun 29 07:58:05 AM MDT 2026 -->
+    </head>
+    <body>
+        <div class="calculator">
+            <label for="dec">Dec:</label>
+            <input id="dec" inputmode="numeric" />
+            <label for="hex">Hex:</label>
+            <input id="hex" />
+            <label for="oct">Oct:</label>
+            <input id="oct" inputmode="numeric" />
+            <label for="bin">Bin:</label>
+            <input id="bin" inputmode="numeric" />
+            <label for="char">Char:</label>
+            <input id="char" />
+            <label for="expr">Exp:</label>
+            <input id="expr" />
+            <label for="eql">&nbsp;</label>
+            <button id="eql">=</button>
+        </div>
+        <script>
       let val = 0;
 
       function updateVal(newVal, validChar) {
@@ -109,6 +109,6 @@
         .addEventListener("input", (e) =>
           updateVal(e.target.value.charCodeAt(0), true),
         );
-    </script>
-  </body>
+        </script>
+    </body>
 </html>
