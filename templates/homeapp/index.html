@@ -2,9 +2,11 @@
 <html lang="en">
   <head>
     <title>Eric's Home Page</title>
-    <link rel="icon" href="/static/favicon.ico" sizes="any" />
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" sizes="any" />
     <meta name="theme-color" content="#2F3BA2" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Home page" />
+        <meta name="keywords" content="home" />
     <style>
       ul {
         display: flex;
@@ -57,7 +59,7 @@
             <div class="nav-bubble">
               <img
                 alt="Hacker News"
-                src="/static/homeapp/icons/hackernews.png"
+                src="{{ url_for('static', filename='homeapp/icons/hackernews.png') }}"
                 width="32"
                 height="32"
               />
@@ -72,7 +74,7 @@
             <div class="nav-bubble">
               <img
                 alt="Sefaria"
-                src="/static/homeapp/icons/sefaria.png"
+                src="{{ url_for('static', filename='homeapp/icons/sefaria.png') }}"
                 width="32"
                 height="32"
               />
@@ -87,7 +89,7 @@
             <div class="nav-bubble">
               <img
                 alt="Wikipedia"
-                src="/static/homeapp/icons/wikipedia.png"
+                src="{{ url_for('static', filename='homeapp/icons/wikipedia.png') }}"
                 width="32"
                 height="32"
               />
@@ -102,7 +104,7 @@
             <div class="nav-bubble">
               <img
                 alt="Internet Archive"
-                src="/static/homeapp/icons/internet-archive.png"
+                src="{{ url_for('static', filename='homeapp/icons/internet-archive.png') }}"
                 width="32"
                 height="32"
               />
@@ -117,7 +119,7 @@
             <div class="nav-bubble">
               <img
                 alt="Github"
-                src="/static/homeapp/icons/github.svg"
+                src="{{ url_for('static', filename='homeapp/icons/github.svg') }}"
                 width="32"
                 height="32"
               />
@@ -132,7 +134,7 @@
             <div class="nav-bubble">
               <img
                 alt="Netflix"
-                src="/static/homeapp/icons/netflix.png"
+                src="{{ url_for('static', filename='homeapp/icons/netflix.png') }}"
                 width="32"
                 height="32"
               />
@@ -147,7 +149,7 @@
             <div class="nav-bubble">
               <img
                 alt="Pico-8"
-                src="/static/homeapp/icons/pico-8.png"
+                src="{{ url_for('static', filename='homeapp/icons/pico-8.png') }}"
                 width="32"
                 height="32"
               />
@@ -164,7 +166,7 @@
             <div class="nav-bubble">
               <img
                 alt="NWS"
-                src="/static/homeapp/icons/nws.png"
+                src="{{ url_for('static', filename='homeapp/icons/nws.png') }}"
                 width="32"
                 height="32"
               />
@@ -179,7 +181,7 @@
             <div class="nav-bubble">
               <img
                 alt="RTD Walnut"
-                src="/static/homeapp/icons/rtd.png"
+                src="{{ url_for('static', filename='homeapp/icons/rtd.png') }}"
                 width="32"
                 height="32"
               />
@@ -194,7 +196,7 @@
             <div class="nav-bubble">
               <img
                 alt="RTD Yarmouth"
-                src="/static/homeapp/icons/rtd.png"
+                src="{{ url_for('static', filename='homeapp/icons/rtd.png') }}"
                 width="32"
                 height="32"
               />
@@ -209,7 +211,7 @@
             <div class="nav-bubble">
               <img
                 alt="AtariAge"
-                src="/static/homeapp/icons/atariage.png"
+                src="{{ url_for('static', filename='homeapp/icons/atariage.png') }}"
                 width="32"
                 height="32"
               />
@@ -224,7 +226,7 @@
             <div class="nav-bubble">
               <img
                 alt="Lemon 64"
-                src="/static/homeapp/icons/lemon64.png"
+                src="{{ url_for('static', filename='homeapp/icons/lemon64.png') }}"
                 width="32"
                 height="32"
               />
@@ -239,7 +241,7 @@
             <div class="nav-bubble">
               <img
                 alt="Twisty Puzzles"
-                src="/static/homeapp/icons/twistypuzzles.png"
+                src="{{ url_for('static', filename='homeapp/icons/twistypuzzles.png') }}"
                 width="32"
                 height="32"
               />
@@ -254,7 +256,7 @@
             <div class="nav-bubble">
               <img
                 alt="Indie Retro News"
-                src="/static/homeapp/icons/indie-retro-news.png"
+                src="{{ url_for('static', filename='homeapp/icons/indie-retro-news.png') }}"
                 width="32"
                 height="32"
               />
@@ -269,7 +271,7 @@
             <div class="nav-bubble">
               <img
                 alt="C= News"
-                src="/static/homeapp/icons/commodore-news.png"
+                src="{{ url_for('static', filename='homeapp/icons/commodore-news.png') }}"
                 width="32"
                 height="32"
               />
@@ -282,7 +284,7 @@
     <p>
       <a href="http://mozart.local/preview/">Local</a> |
       <a href="https://mozart.local/preview/">SSL Local</a> |
-      <a href="runner">Runner</a>
+      <a href="{{ url_for('homeapp_runner') }}">Runner</a>
     </p>
     <p>Current time is {{ current_date }}</p>
   </body>

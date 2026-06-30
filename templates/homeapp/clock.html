@@ -2,8 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/static/favicon.ico" sizes="any" />
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" sizes="any" />
     <title>Current Time</title>
+        <meta name="description" content="Clock example" />
+        <meta name="keywords" content="clock" />
     <style>
       @font-face {
         font-family: "Raleway";
