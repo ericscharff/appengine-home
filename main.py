@@ -1,5 +1,5 @@
-from datetime import datetime, timedelta, timezone
 import secrets
+from datetime import datetime, timedelta, timezone
 
 from flask import Flask, make_response, render_template, request
 
