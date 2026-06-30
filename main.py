@@ -9,15 +9,11 @@ BUILD_DATE = "Last modified Mon Jun 29 07:58:05 AM MDT 2026"
 
 
 @app.route("/calc")
-@app.route("/calc/")
-@app.route("/calc/index.html")
 def calc_main():
     return render_template("calc/index.html")
 
 
 @app.route("/homeapp")
-@app.route("/homeapp/")
-@app.route("/homeapp/index.html")
 def homeapp_main():
     current_date = (
         datetime.now(timezone.utc) + timedelta(hours=-6)

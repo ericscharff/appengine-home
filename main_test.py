@@ -30,16 +30,6 @@ def test_calc_main(client):
     assert b"Calculator" in response.data
 
 
-def test_calc_index(client):
-    response = client.get("/calc/index.html")
-    assert b"Calculator" in response.data
-
-
 def test_homeapp_main(client):
     response = client.get("/homeapp")
-    assert b"Home" in response.data
-
-
-def test_homeapp_index(client):
-    response = client.get("/homeapp/index.html")
     assert b"Home" in response.data
