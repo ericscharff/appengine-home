@@ -14,6 +14,7 @@ def calc_main():
 
 
 @app.route("/homeapp")
+@app.route("/homeapp/")
 def homeapp_main():
     current_date = (
         datetime.now(timezone.utc) + timedelta(hours=-6)
