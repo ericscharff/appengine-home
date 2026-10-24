@@ -1,6 +1,6 @@
 A simple Python application
 
-deployed to app engine
+deployed to Cloud Run
 
 # Installation
 
@@ -20,5 +20,10 @@ Run tests:
 Run coverage:
         coverage run -m pytest
         coverage report
-Deploy:
-        gcloud app deploy
+Run tests in Docker:
+        docker build --target test .
+Build and run container locally:
+        docker build -t homeapp .
+        docker run --rm -p 8080:8080 homeapp
+Deploy manually:
+        gcloud run deploy homeapp --source . --region us-central1 --allow-unauthenticated

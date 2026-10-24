@@ -1,0 +1,10 @@
+.coverage
+.dockerignore
+.gcloudignore
+.git
+.gitignore
+.jj
+__pycache__/
+*.pyc
+README.md
+venv*
