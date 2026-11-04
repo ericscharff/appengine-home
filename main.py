@@ -5,8 +5,6 @@ from flask import Flask, make_response, render_template, request
 
 app = Flask(__name__)
 
-BUILD_DATE = "Last modified Tue Nov  3 06:01:12 AM MST 2026"
-
 
 @app.after_request
 def add_static_headers(response):
@@ -49,6 +47,4 @@ def check_update():
 @app.route("/")
 def root():
     current_date = (datetime.now(timezone.utc) + timedelta(hours=-6)).isoformat()
-    return render_template(
-        "index.html", build_date=BUILD_DATE, current_date=current_date
-    )
+    return render_template("index.html", current_date=current_date)
