@@ -68,7 +68,7 @@
         } else {
           // Try to start the timer and wake lock
           keepRunning = true;
-          lockButton.textContent = "STOP";
+          lockButton.textContent = "Stop";
           wakeLock = await navigator.wakeLock.request('screen');
           if (wakeLock) {
             lockStatus.innerText = "Wake lock active";
